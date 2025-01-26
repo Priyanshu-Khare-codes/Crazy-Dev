@@ -47,7 +47,7 @@ Follow the steps below to set up the project on your local machine:
    ```bash
    pip install -r requirements.txt
 
-6. **Start the API Server  
+6. **Start the API Server**
    Launch the development server using:  
    ```bash
    uvicorn main:app --reload
