@@ -32,17 +32,22 @@ Follow the steps below to set up the project on your local machine:
    ```bash
    git clone https://github.com/Priyanshu-Khare-codes/Crazy-Dev.git
 
-3. **Navigate to the API Server Directory**  
+3. **Navigate to the Crazy-Dev Directory**  
+   Change the directory to the `Crazy-Dev` folder:  
+   ```bash
+   cd Crazy-Dev
+
+4. **Navigate to the API Server Directory**  
    Change the directory to the `apiserver` folder:  
    ```bash
    cd apiserver
 
-4. **Install Required Dependencies**  
+5. **Install Required Dependencies**  
    Install the necessary Python packages by running:  
    ```bash
    pip install -r requirements.txt
 
-5. **Start the API Server  
+6. **Start the API Server  
    Launch the development server using:  
    ```bash
    uvicorn main:app --reload
