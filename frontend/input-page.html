@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-image: url(dark-blue-technology-background-free-vector.jpg);
+        }
+        h1 {
+            text-align: center;
+            color: #d8cece;
+            
+        }
+        #input-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .tag {
+            font-weight: bold;
+            color: green;
+        }
+        .category {
+            font-weight: bold;
+            color: #FF5733;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Analyzer To-Do List</h1>
+    <div id="input-container">
+        <input type="text" id="input-text" placeholder="Enter your text here...">
+        <button id="submit-button">Submit</button>
+    </div>
+    <ul id="todo-list"></ul>
+    <div id="error-message" class="error"></div>
+
+    <script>
+        const apiUrl = "http://localhost:8000/analyze"; // Replace with your API URL
+        const submitButton = document.getElementById("submit-button");
+        const inputText = document.getElementById("input-text");
+        const todoList = document.getElementById("todo-list");
+        const errorMessage = document.getElementById("error-message");
+
+        submitButton.addEventListener("click", async () => {
+            const text = inputText.value.trim();
+            if (!text) {
+                errorMessage.textContent = "Please enter some text before submitting.";
+                return;
+            }
+            errorMessage.textContent = "";
+
+            try {
+                // Send POST request to the API
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ text }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                // Add the result to the to-do list
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <span>${text}</span><br>
+                    <span class="tag">Tag: ${data.tag}</span><br>
+                    <span class="category">Category: ${data.category}</span><br>
+                    <span>Description: ${data.description}</span>
+                `;
+                todoList.appendChild(listItem);
+
+                // Clear input
+                inputText.value = "";
+            } catch (error) {
+                errorMessage.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gen AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="font-size: 30px;">Gen AI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#developer">Developer</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="shadow-dance-container">
+        <h1 class="shadow-dance-text">Welcome to Crazy Dev</h1>
+      </div>
+      <!-- <p style="color: white; font-family: Comic Sans MS, cursive;">Hey, congratulations! You entered our page.</p> -->
+      <!-- 'Get Started' button -->
+      <a href="/input-page.html" class="btn btn-custom">Get Started</a>
+    </div>
+  </section>
+
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Our Mission</h5>
+              <p class="card-text">We aim to provide online safety and reduce harmful content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Our Vision</h5>
+              <p class="card-text">To ensure privacy and security by processing content securely without storing sensitive data.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Crazy Dev</h5>
+              <p class="card-text">A team of passionate developers and AI enthusiasts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="developer" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Developer Info</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Priyanshu Khare</h5>
+              <p class="card-text">AI and Machine Learning</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Anjali Chouhan</h5>
+              <p class="card-text">Front-end Developer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Avichal Shrivastava</h5>
+              <p class="card-text">Front-end Developer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            
+            <div class="card" style="margin-top: 10px;">
+              
+              <div class="card-body" >
+                <h5 class="card-title">Anurag jaiswal</h5>
+                <p class="card-text">backend developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <footer>
+      <div class="container">
+        <p>&copy; 2025 Gen AI. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <script>
+        const apiUrl = "http://localhost:8000/analyze"; // Replace with your API URL
+        const submitButton = document.getElementById("submit-button");
+        const inputText = document.getElementById("input-text");
+        const todoList = document.getElementById("todo-list");
+        const errorMessage = document.getElementById("error-message");
+
+
+        submitButton.addEventListener("click", async () => {
+            const text = inputText.value.trim();
+            if (!text) {
+                errorMessage.textContent = "Please enter some text before submitting.";
+                return;
+            }
+            errorMessage.textContent = "";
+
+            try {
+                // Send POST request to the API
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ text }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                // Add the result to the to-do list
+                const listItem = document.createElement("li");
+                listItem.innerHTML = 
+                    `<span>${text}</span>
+                    <span class="tag">Tag: ${data.tag}</span>
+                    <span class="category">Category: ${data.category}</span>
+                    <span>Description: ${data.description}</span>`
+                
+                todoList.appendChild(listItem);
+
+                // Clear input
+                inputText.value = "";
+            } catch (error) {
+                errorMessage.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script> -->
+    </body>
+    </html>
